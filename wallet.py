@@ -14,9 +14,9 @@ usernametk.pack()
 
 
 while True:
-    time.sleep(0.1)
-    window.update()
+    time.sleep(0.0)
     print(usernametk.get())
+    window.update()
+    
 
-window.mainloop()
 
