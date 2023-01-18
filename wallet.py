@@ -11,16 +11,19 @@ errorcol = "red"
 
 def GetUserData():
     global userdata
+    time.sleep(0.2)
     userdata = requests.get("https://server.duinocoin.com/users/" + username).json()
 
 def LogOn():
+    GetUserData()
+
     usernameLabel.pack_forget()
     usernameEntry.pack_forget()
     passwordLabel.pack_forget()
     passwordEntry.pack_forget()
     loginbutton.pack_forget()
 
-    balTk = tk.Label(text=userdata["balance"]["balance"], )
+    balTk = tk.Label(text="Balance: " + str(userdata["result"]["balance"]["balance"]) + "ᕲ", bg=bgcol, fg=txtcol);balTk.pack(side=tk.LEFT, padx=10)
 
 
 
@@ -53,7 +56,7 @@ window.title("duinocoin python wallet")
 window.geometry("1600x900")
 window.configure(bg=bgcol)
 
-tk.Label(text="welcome!\n\nUse the form below to log in!",bg=bgcol, foreground=txtcol, height=5).pack()
+welcomeLabel = tk.Label(text="welcome!\n\nUse the form below to log in!",bg=bgcol, foreground=txtcol);welcomeLabel.pack()
 usernameLabel = tk.Label(text="Username:", bg=bgcol, fg=txtcol);usernameLabel.pack()
 usernameEntry = tk.Entry();usernameEntry.pack()
 passwordLabel = tk.Label(text="password:", bg=bgcol, fg=txtcol);passwordLabel.pack()
