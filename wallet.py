@@ -78,5 +78,5 @@ loginbutton = tk.Button(text="Login", bg="blue", command=Logintk);loginbutton.pa
 
 
 while True:
-    time.sleep(0.0)
     window.update()
+    time.sleep(0.0)
